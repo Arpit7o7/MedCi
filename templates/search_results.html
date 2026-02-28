@@ -15,7 +15,7 @@
                 <div class="row g-4">
                     {% for medicine in medicines %}
                     <div class="col-md-6 fade-in">
-                        <a href="{% url 'results' medicine.id %}" class="text-decoration-none">
+                        <a href="{% url 'results' medicine.id %}" class="text-decoration-none" aria-label="View details for {{ medicine.brand_name }}">
                             <div class="card medicine-card h-100 {% if medicine.is_generic %}border-success{% endif %}">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start mb-2">
@@ -36,14 +36,14 @@
                                         <strong>Strength:</strong> {{ medicine.strength }}
                                     </p>
                                     <p class="card-text text-muted mb-2">
-                                        <small>🏭 {{ medicine.manufacturer }}</small>
+                                        <small><span aria-hidden="true">🏭</span> {{ medicine.manufacturer }}</small>
                                     </p>
                                     {% if medicine.description %}
                                     <p class="card-text text-muted mb-0"><small>{{ medicine.description|truncatewords:15 }}</small></p>
                                     {% endif %}
                                 </div>
                                 <div class="card-footer bg-transparent border-0 pt-0">
-                                    <small class="text-primary">View Details →</small>
+                                    <small class="text-primary fw-semibold">View Details →</small>
                                 </div>
                             </div>
                         </a>
@@ -51,14 +51,15 @@
                     {% endfor %}
                 </div>
             {% else %}
-                <div class="alert alert-info">
-                    <h5 class="alert-heading">No Results Found</h5>
-                    <p class="mb-0">No medicines found matching "{{ query }}". Please try a different search term.</p>
+                <div class="empty-state fade-in">
+                    <span class="empty-icon" aria-hidden="true">🔍</span>
+                    <h5>No Results Found</h5>
+                    <p>No medicines found matching "{{ query }}". Try a different search term or check the spelling.</p>
                 </div>
             {% endif %}
             
             <div class="mt-5">
-                <a href="{% url 'home' %}" class="btn btn-secondary">
+                <a href="{% url 'home' %}" class="btn btn-back">
                     ← Back to Search
                 </a>
             </div>

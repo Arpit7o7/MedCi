@@ -13,12 +13,12 @@
                 </p>
                 
                 <div class="search-box fade-in">
-                    <form action="{% url 'search' %}" method="get" class="d-flex gap-3">
+                    <form action="{% url 'search' %}" method="get" class="d-flex gap-3" role="search" aria-label="Medicine search">
                         <input type="text" name="q" class="form-control form-control-lg" 
                                placeholder="Search for medicine by brand name..." 
-                               autocomplete="off" required>
+                               autocomplete="off" required aria-label="Medicine name">
                         <button type="submit" class="btn btn-light btn-lg">
-                            <span class="d-none d-md-inline">🔍</span> Search
+                            <span class="d-none d-md-inline" aria-hidden="true">🔍</span> Search
                         </button>
                     </form>
                 </div>
@@ -33,7 +33,7 @@
             <div class="card feature-card h-100 text-center">
                 <div class="card-body">
                     <div class="icon-wrapper bg-gradient-primary mb-3">
-                        <span style="filter: brightness(0) invert(1);">💰</span>
+                        <span>💰</span>
                     </div>
                     <h3 class="card-title">Compare Prices</h3>
                     <p class="card-text text-muted">See general price ranges from multiple pharmacies and find the best deals</p>
@@ -44,7 +44,7 @@
             <div class="card feature-card h-100 text-center">
                 <div class="card-body">
                     <div class="icon-wrapper bg-gradient-success mb-3">
-                        <span style="filter: brightness(0) invert(1);">💊</span>
+                        <span>💊</span>
                     </div>
                     <h3 class="card-title">Find Generic Alternatives</h3>
                     <p class="card-text text-muted">Discover cheaper generic medicines with identical compositions</p>
@@ -55,7 +55,7 @@
             <div class="card feature-card h-100 text-center">
                 <div class="card-body">
                     <div class="icon-wrapper bg-gradient-primary mb-3">
-                        <span style="filter: brightness(0) invert(1);">📊</span>
+                        <span>📊</span>
                     </div>
                     <h3 class="card-title">Save Money</h3>
                     <p class="card-text text-muted">See potential savings up to 80% with generic alternatives</p>
