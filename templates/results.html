@@ -56,7 +56,7 @@
                         {% if savings_percentage > 0 %}
                         <div class="alert alert-success mb-4">
                             <div class="d-flex align-items-center">
-                                <span class="me-3" style="font-size: 2rem;">💡</span>
+                                <span class="me-3 fs-2" aria-hidden="true">💡</span>
                                 <div>
                                     <strong>Price Variation:</strong> Prices vary by up to 
                                     <span class="badge bg-success fs-6">{{ savings_percentage }}%</span>
@@ -210,7 +210,7 @@
                     {% if has_generic_alternatives %}
                     <div class="alert alert-success mt-3">
                         <div class="d-flex align-items-center">
-                            <span class="me-3" style="font-size: 1.5rem;">💡</span>
+                            <span class="me-3 fs-4" aria-hidden="true">💡</span>
                             <div>
                                 <strong>Pro Tip:</strong> Generic medicines (highlighted in green) contain the same active ingredient and are equally effective, but cost significantly less!
                             </div>
@@ -222,7 +222,7 @@
             {% endif %}
 
             <div class="mt-4 fade-in">
-                <a href="{% url 'home' %}" class="btn btn-secondary">
+                <a href="{% url 'home' %}" class="btn btn-back">
                     ← Back to Search
                 </a>
             </div>

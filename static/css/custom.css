@@ -25,7 +25,8 @@ main {
 
 /* Enhanced Navbar */
 .navbar {
-    box-shadow: var(--shadow-sm);
+    background: var(--primary-gradient) !important;
+    box-shadow: var(--shadow-md);
     padding: 0.75rem 0;
 }
 
@@ -33,6 +34,20 @@ main {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
+}
+
+.navbar-brand .brand-icon {
+    font-size: 1.75rem;
+    margin-right: 8px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+    opacity: 0.85;
 }
 
 /* Hero Section */
@@ -108,6 +123,11 @@ main {
     box-shadow: var(--shadow-lg);
 }
 
+.search-box .btn:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
 /* Feature Cards */
 .feature-card {
     border: none;
@@ -143,6 +163,11 @@ main {
     justify-content: center;
     font-size: 2rem;
     margin: 0 auto 1.5rem;
+    transition: transform var(--transition-speed) ease;
+}
+
+.feature-card:hover .icon-wrapper {
+    transform: scale(1.1);
 }
 
 .feature-card .icon-wrapper.bg-gradient-primary {
@@ -206,6 +231,14 @@ main {
 
 .medicine-card .card-body {
     padding: 1.5rem;
+}
+
+.medicine-card .card-footer {
+    transition: background var(--transition-speed) ease;
+}
+
+.medicine-card:hover .card-footer {
+    background: rgba(102, 126, 234, 0.05) !important;
 }
 
 /* Results Page Enhancements */
@@ -310,8 +343,21 @@ footer {
     border-top: 1px solid #dee2e6;
 }
 
+footer .brand-icon {
+    font-size: 2rem;
+}
+
 footer p {
     font-size: 0.9rem;
+}
+
+footer .disclaimer {
+    background: rgba(255, 193, 7, 0.08);
+    border-left: 3px solid #ffc107;
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    display: inline-block;
+    text-align: left;
 }
 
 /* Buttons */
@@ -319,6 +365,25 @@ footer p {
     border-radius: 8px;
     font-weight: 600;
     transition: all var(--transition-speed) ease;
+}
+
+.btn:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+.btn-back {
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.btn-back:hover {
+    background: var(--primary-gradient);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary {
@@ -372,6 +437,34 @@ footer p {
     height: 4px;
     background: var(--primary-gradient);
     border-radius: 2px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.empty-state .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.6;
+}
+
+.empty-state h5 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: #6c757d;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 /* Animation Classes */
