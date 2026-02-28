@@ -6,34 +6,44 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-10 mx-auto">
-            <h2 class="mb-4">Search Results for "{{ query }}"</h2>
-            <p class="text-muted mb-4">Found {{ count }} medicine(s)</p>
+            <div class="mb-5">
+                <h2 class="mb-2 fade-in">Search Results for "{{ query }}"</h2>
+                <p class="text-muted mb-0">Found <span class="badge bg-primary">{{ count }}</span> medicine(s)</p>
+            </div>
             
             {% if medicines %}
-                <div class="row">
+                <div class="row g-4">
                     {% for medicine in medicines %}
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 fade-in">
                         <a href="{% url 'results' medicine.id %}" class="text-decoration-none">
                             <div class="card medicine-card h-100 {% if medicine.is_generic %}border-success{% endif %}">
                                 <div class="card-body">
-                                    <h5 class="card-title text-primary">
-                                        {{ medicine.brand_name }}
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title text-primary mb-0">
+                                            {{ medicine.brand_name }}
+                                        </h5>
                                         {% if medicine.is_generic %}
-                                        <span class="badge bg-success ms-2">Generic</span>
+                                        <span class="badge bg-success">Generic</span>
+                                        {% else %}
+                                        <span class="badge bg-primary">Branded</span>
                                         {% endif %}
-                                    </h5>
-                                    <p class="card-text mb-1">
+                                    </div>
+                                    <hr class="my-2">
+                                    <p class="card-text mb-2">
                                         <strong>Composition:</strong> {{ medicine.composition }}
                                     </p>
-                                    <p class="card-text mb-1">
+                                    <p class="card-text mb-2">
                                         <strong>Strength:</strong> {{ medicine.strength }}
                                     </p>
-                                    <p class="card-text text-muted">
-                                        <small>{{ medicine.manufacturer }}</small>
+                                    <p class="card-text text-muted mb-2">
+                                        <small>🏭 {{ medicine.manufacturer }}</small>
                                     </p>
                                     {% if medicine.description %}
-                                    <p class="card-text"><small>{{ medicine.description|truncatewords:15 }}</small></p>
+                                    <p class="card-text text-muted mb-0"><small>{{ medicine.description|truncatewords:15 }}</small></p>
                                     {% endif %}
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pt-0">
+                                    <small class="text-primary">View Details →</small>
                                 </div>
                             </div>
                         </a>
@@ -42,12 +52,15 @@
                 </div>
             {% else %}
                 <div class="alert alert-info">
-                    No medicines found matching "{{ query }}". Please try a different search term.
+                    <h5 class="alert-heading">No Results Found</h5>
+                    <p class="mb-0">No medicines found matching "{{ query }}". Please try a different search term.</p>
                 </div>
             {% endif %}
             
-            <div class="mt-4">
-                <a href="{% url 'home' %}" class="btn btn-secondary">← Back to Search</a>
+            <div class="mt-5">
+                <a href="{% url 'home' %}" class="btn btn-secondary">
+                    ← Back to Search
+                </a>
             </div>
         </div>
     </div>
