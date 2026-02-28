@@ -3,21 +3,23 @@
 {% block title %}Home - Medicine Price Comparison{% endblock %}
 
 {% block content %}
-<div class="hero-section bg-light py-5">
+<div class="hero-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h1 class="display-4 mb-4">Find the Best Medicine Prices</h1>
-                <p class="lead mb-4">
+                <h1 class="display-4 mb-4 fade-in">Find the Best Medicine Prices</h1>
+                <p class="lead mb-5 fade-in">
                     Compare prices across pharmacies and discover cheaper generic alternatives with the same composition.
                 </p>
                 
-                <div class="search-box">
-                    <form action="{% url 'search' %}" method="get" class="d-flex gap-2">
+                <div class="search-box fade-in">
+                    <form action="{% url 'search' %}" method="get" class="d-flex gap-3">
                         <input type="text" name="q" class="form-control form-control-lg" 
                                placeholder="Search for medicine by brand name..." 
                                autocomplete="off" required>
-                        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                        <button type="submit" class="btn btn-light btn-lg">
+                            <span class="d-none d-md-inline">🔍</span> Search
+                        </button>
                     </form>
                 </div>
             </div>
@@ -26,47 +28,58 @@
 </div>
 
 <div class="container py-5">
-    <div class="row mb-5">
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 text-center">
+    <div class="row mb-5 g-4">
+        <div class="col-md-4">
+            <div class="card feature-card h-100 text-center">
                 <div class="card-body">
-                    <h3 class="card-title">💰 Compare Prices</h3>
-                    <p class="card-text">See general price ranges from multiple pharmacies</p>
+                    <div class="icon-wrapper bg-gradient-primary mb-3">
+                        <span style="filter: brightness(0) invert(1);">💰</span>
+                    </div>
+                    <h3 class="card-title">Compare Prices</h3>
+                    <p class="card-text text-muted">See general price ranges from multiple pharmacies and find the best deals</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 text-center">
+        <div class="col-md-4">
+            <div class="card feature-card h-100 text-center">
                 <div class="card-body">
-                    <h3 class="card-title">💊 Find Generic Alternatives</h3>
-                    <p class="card-text">Discover cheaper generic medicines with identical compositions</p>
+                    <div class="icon-wrapper bg-gradient-success mb-3">
+                        <span style="filter: brightness(0) invert(1);">💊</span>
+                    </div>
+                    <h3 class="card-title">Find Generic Alternatives</h3>
+                    <p class="card-text text-muted">Discover cheaper generic medicines with identical compositions</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 text-center">
+        <div class="col-md-4">
+            <div class="card feature-card h-100 text-center">
                 <div class="card-body">
-                    <h3 class="card-title">📊 Save Money</h3>
-                    <p class="card-text">See potential savings up to 80% with generic alternatives</p>
+                    <div class="icon-wrapper bg-gradient-primary mb-3">
+                        <span style="filter: brightness(0) invert(1);">📊</span>
+                    </div>
+                    <h3 class="card-title">Save Money</h3>
+                    <p class="card-text text-muted">See potential savings up to 80% with generic alternatives</p>
                 </div>
             </div>
         </div>
     </div>
 
     {% if generic_benefits %}
-    <div class="row">
+    <div class="row mt-5">
+        <div class="col-12 text-center mb-5">
+            <h2 class="section-heading">Why Choose Generic Medicines?</h2>
+        </div>
         <div class="col-12">
-            <h2 class="text-center mb-4">Why Choose Generic Medicines?</h2>
-            <div class="row">
+            <div class="row g-4">
                 {% for benefit in generic_benefits %}
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100 border-success">
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <span class="me-2">{{ benefit.icon }}</span>
-                                {{ benefit.title }}
-                            </h4>
-                            <p class="card-text">{{ benefit.description }}</p>
+                <div class="col-md-6">
+                    <div class="card benefit-card h-100">
+                        <div class="card-body d-flex align-items-start">
+                            <span class="benefit-icon">{{ benefit.icon }}</span>
+                            <div>
+                                <h4 class="card-title mb-2">{{ benefit.title }}</h4>
+                                <p class="card-text text-muted mb-0">{{ benefit.description }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
